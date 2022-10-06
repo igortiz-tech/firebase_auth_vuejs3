@@ -4,7 +4,6 @@
       <div class="col-md-8">
         <div class="card">
           <div v-if="user.loggedIn">
-
             <div class="card-header">Welcome, {{user.data.displayName}}</div>
             <div class="card-body">
               <div class="alert alert-success" role="alert">
@@ -14,7 +13,6 @@
                 </div>
               </div>
             </div>
-
           </div>
           <div v-else class="alert alert-danger" role="alert">
             You are not logged in!
@@ -32,7 +30,7 @@
 import { useStore} from "vuex";
 import { useRouter } from "vue-router";
 import {computed} from "vue";
-import { auth } from '../firebaseConfig'
+// import { auth } from '../firebaseConfig'
 
 
 export default {
@@ -43,9 +41,9 @@ export default {
     const store = useStore()
     const router = useRouter()
 
-    auth.onAuthStateChanged(user => {
-      store.dispatch("fetchUser", user);
-    });
+    // auth.onAuthStateChanged(user => {
+    //   store.dispatch("fetchUser", user);
+    // });
 
 
     const user = computed(() => {

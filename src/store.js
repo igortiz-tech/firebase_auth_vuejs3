@@ -36,6 +36,7 @@ const store = createStore({
         async logIn(context, { email, password }){
             const response = await signInWithEmailAndPassword(auth, email, password)
             if (response) {
+                localStorage.setItem('user', JSON.stringify(response.user));
                 context.commit('SET_USER', response.user)
             } else {
                 throw new Error('login failed')
